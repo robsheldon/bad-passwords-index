@@ -23,7 +23,11 @@ For the first version of this file, the only source is [a security researcher's 
 
 I will infrequently update this index with passwords from new sources and as I improve the packing algorithm. I think I'm pretty close to having an optimal packing algorithm though; I can probably only get another percentage point or two of unique passwords stuffed into a 1MB file.
 
+The last ten bytes of the index file are "//" followed by the date the file was generated in YYYYMMDD format. You can use 'tail -c 8 bad_passwords.txt' to get the date the file was generated.
+
 
 ## License
 
 I am [Unlicensing](http://unlicense.org/) this file. You may use it or modify it for any purpose. I disclaim all copyrights for it. I do not require attribution or credit. Have fun, write code. See the UNLICENSE file for the nitty-gritty legalese.
+
+I will eventually add the password packing program to this repository under the same license. I just need to clean up the code a little bit first, it's slightly yucky.
