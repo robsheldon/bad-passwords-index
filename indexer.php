@@ -47,7 +47,7 @@
 	$out_concatenated = 0;	//	Number of passwords that were concatenated together in the output file.
 	$concat_bytes = 0;		//	Number of bytes that were saved by output concatenation.
 	$last_out_count = 0;	//	Number of times the last password written to the output file occurred in the input file(s).
-	$best_concat = array();
+	$best_concat = [];
 	$best_concat_count = 0;
 
 
@@ -66,8 +66,8 @@
 	$outfile = fopen($out_arg, 'w');
 	if ( $outfile === false ) exit("Error attempting to open $out_arg for writing.");
 
-	$grouped_passwords = array();
-	for ( $i = $maxlen - 1; $i; $i-- ) $grouped_passwords[] = array();
+	$grouped_passwords = [];
+	for ( $i = $maxlen - 1; $i; $i-- ) $grouped_passwords[] = [];
 
 	while ($arguments) {
 		$filename = array_shift($arguments);
@@ -203,7 +203,7 @@
 				unset($batch[$password]);
 				//	Update best concat statistic.
 				if ( strlen($search) > $best_concat_count ) {
-					$best_concat = array($last_password, $password);
+					$best_concat = [$last_password, $password];
 					$best_concat_count = strlen($search);
 				}
 				$password = substr($password, strlen($search));
@@ -313,5 +313,3 @@
 	echo "best_concat: \"" . implode('", "', $best_concat) . "\"\n";
 
 	echo "\nDone.\n\n";
-
-?>
